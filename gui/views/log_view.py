@@ -6,8 +6,10 @@ from gui.widgets.custom_qwidget import CustomQWidget
 from gui.utils.screen_manager import ScreenManager
 import logging
 
+
 class LogEmitter(QObject):
     """ログをメインスレッドに送信するためのクラス"""
+
     new_log = Signal(str)
 
 

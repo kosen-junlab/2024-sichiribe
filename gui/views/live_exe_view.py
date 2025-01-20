@@ -1,5 +1,5 @@
 """リアルタイム解析の実行画面"""
-    
+
 from PySide6.QtWidgets import (
     QHBoxLayout,
     QVBoxLayout,

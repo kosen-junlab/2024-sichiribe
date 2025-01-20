@@ -56,7 +56,7 @@ class SettingsManager:
 
     def _get_default_setting_path(self, pattern: str) -> Path:
         """設定ファイルのデフォルトパスを取得する"""
-        appname = "Sichiribe"
+        appname = "sichiribe"
         appauthor = "EbinaKai"
         user_dir = user_data_dir(appname, appauthor)
 
@@ -73,7 +73,15 @@ class SettingsManager:
         Returns:
             Dict[str, Any]: 設定ファイルの内容
         """
-        return self.load(self.default_path)
+        try:
+            return self.load(self.default_path)
+        except FileNotFoundError:
+            logger.warning(
+                f"Default settings file not found. Creating a new one at {self.default_path}."
+            )
+            initial_settings = {key: None for key in self.required_keys}
+            self.save(initial_settings)  # 初期設定を保存
+            return initial_settings
 
     def load(self, filepath: Union[str, Path]) -> Dict[str, Any]:
         """設定ファイルを読み込む

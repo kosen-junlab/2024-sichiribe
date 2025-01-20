@@ -89,12 +89,12 @@ def build_data_records(data_dict: Dict[str, List[Any]]) -> List[Dict[str, Any]]:
             "name": ["Alice", "Bob", "Charlie"],
             "age": [20, 25, 30],
         }
-        
+
         build_data_records(data_dict)
-        # => [  
-        #      {"name": "Alice", "age": 20},  
-        #      {"name": "Bob", "age": 25},  
-        #      {"name": "Charlie", "age": 30},  
+        # => [
+        #      {"name": "Alice", "age": 20},
+        #      {"name": "Bob", "age": 25},
+        #      {"name": "Charlie", "age": 30},
         #    ]
         ```
     """
